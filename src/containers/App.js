@@ -5,6 +5,8 @@ import Person from '../components/Person/Person'
 import Persons from '../components/Persons/Persons'
 import Cockpit from '../components/Cockpit/Cockpit'
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary'
+import Aux from '../hoc/Aux'
+import withClass from '../hoc/withClass'
 
 class App extends PureComponent {
 
@@ -118,16 +120,16 @@ class App extends PureComponent {
 
 
     return (      
-        <div className={classes.App}>
+        <Aux classes={classes.App}>
         <Cockpit showPersons = {this.state.showPersons}
         persons={this.state.persons}
         clicked={this.togglePersonsHandler}/>
           {persons}  
-        </div>      
+        </Aux>      
     );
     //return React.createElement('div', null, 'h1', 'hi, i\'m a React App');
     //return React.createElement('div', null, React.createElement('h1', {className: 'App'}, '¿Does it works?'));
   }
 }
 
-export default App;
+export default withClass(App, classes.App);

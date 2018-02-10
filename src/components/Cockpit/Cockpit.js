@@ -1,11 +1,11 @@
 import React from 'react'
-
 import classes from './Cockpit.css'
+import Aux from '../../hoc/Aux'
 
 const Cockpit = (props) =>{
 
     let assignedClasses = [];
-    let btnClass = ''
+    let btnClass = [classes.Button, classes.Red].join(' ')
 
     if(props.showPersons){
         btnClass = classes.Red;   
@@ -21,12 +21,12 @@ const Cockpit = (props) =>{
     }
 
     return(
-        <div className={classes.Cockpit}>
+        <Aux>
             <h1 className={assignedClasses.join(' ')}>This is React App</h1>
             <button 
             className={btnClass}
             onClick={() => props.clicked('Maximillian')}>Switch</button>
-        </div>
+        </Aux>
     )
 }
 
